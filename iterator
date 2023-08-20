@@ -1,0 +1,40 @@
+any iterator must implement the __iter__ and __next__
+
+
+to convert an iterable to iterator which is used by next() ,
+
+we must use the iter(), function 
+
+when iter() is called on iterable object , the __iter__ method of it is called, which usually return the object itself, 
+
+when the iterarble is exhausted,  then , we must raise stop iteration ,
+
+
+
+
+class CountUpTo:
+    def __init__(self, max):
+        self.max = max
+        self.value = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.value < self.max:
+            current_value = self.value
+            self.value += 1
+            return current_value
+        else:
+            raise StopIteration
+
+# Using the iterator:
+counter = CountUpTo(3)
+iterator = iter(counter)
+
+print(next(iterator))  # Outputs: 0
+print(next(iterator))  # Outputs: 1
+print(next(iterator))  # Outputs: 2
+
+# This will raise StopIteration since we've reached the max value.
+# print(next(iterator))
