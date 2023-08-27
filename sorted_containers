@@ -1,0 +1,45 @@
+`sortedcontainers` is a popular Python module that provides sorted collections like `SortedList`, `SortedDict`, and `SortedSet`. Here are the primary methods associated with these collections and their complexities:
+
+1. **SortedList**:
+
+   - `add(x)`: Insert value x into list. O(log n)
+   - `remove(x)`: Remove value x from list. O(log n)
+   - `pop([index=-1])`: Remove and return value at index. O(log n)
+   - `__getitem__(index)`: Return value at index. O(1) for getting value by index (due to Python's list being an array list). But if you're using slice notation, then it's O(log n + k) where k is the size of the slice.
+   - `__delitem__(index)`: Remove value at index. O(log n)
+   - `index(x[, start[, stop]])`: Return first index of value. O(log n)
+   - `count(x)`: Return number of occurrences of value. O(log n)
+   - `__contains__(x)`: Return True if list contains value. O(log n)
+   - `__len__()`: Return the number of items in the list. O(1)
+   - `bisect_left(value)`: Return an insertion point for value in list. O(log n)
+   - `bisect_right(value)`: Similar to bisect_left but returns an insertion point which comes after (to the right of) any existing entries of value in the list. O(log n)
+
+2. **SortedDict**:
+
+   - `__setitem__(key, value)`: Set key to value. O(log n)
+   - `__delitem__(key)`: Remove key. O(log n)
+   - `__getitem__(key)`: Return value for key. O(log n)
+   - `__contains__(key)`: Return True if key in dictionary. O(log n)
+   - `keys()`: Return an iterable of the keys. O(1)
+   - `values()`: Return an iterable of the values. O(1)
+   - `items()`: Return an iterable of the (key, value) pairs. O(1)
+   - `__len__()`: Return the number of items in the dictionary. O(1)
+   - `pop(key[, default])`: Remove and return value for key or default. O(log n)
+   - `popitem(index=-1)`: Remove and return (key, value) pair at index. O(log n)
+
+3. **SortedSet**:
+
+   - `add(value)`: Add value to set. O(log n)
+   - `remove(value)`: Remove value from set. O(log n)
+   - `discard(value)`: Remove value from set if present. O(log n)
+   - `pop([index=-1])`: Remove and return value at index. O(log n)
+   - `__contains__(value)`: Return True if set contains value. O(log n)
+   - `__len__()`: Return the number of items in the set. O(1)
+   - `__getitem__(index)`: Return value at index. O(1) for getting value by index, but O(log n + k) for slice notation.
+   - `index(value[, start[, stop]])`: Return first index of value. O(log n)
+   - `count(value)`: Return number of occurrences of value (always 1 for a set, if the value exists). O(log n)
+   - `isdisjoint(other)`: Return True if two sets have a null intersection. O(len(min(self, other)))
+   - `issubset(other)`: Return True if another set contains this set. O(len(self))
+   - `issuperset(other)`: Return True if this set contains another set. O(len(other))
+
+These complexities make `sortedcontainers` an efficient choice for many problems where sorted collections are needed.
