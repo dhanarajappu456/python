@@ -1,0 +1,50 @@
+installation  - pip install ordered-set
+
+
+from ordered_set import OrderedSet
+
+
+#can apply all the methods of normal set, 
+
+#note that ordered set also has the index of method unlike the normal set
+# Create a new OrderedSet
+oset = OrderedSet()
+
+# Add elements
+oset.add('a')
+oset.add('b')
+oset.add('a')  # Adding 'a' again will not create a duplicate
+
+# Check if an element is in the set
+print('a' in oset)  # True
+
+# Remove an element
+oset.remove('a')
+
+# Discard an element (similar to remove, but won't raise error if the element is not found)
+oset.discard('a')
+oset.discard('b')
+
+# Add multiple items from another iterable (e.g., a list)
+oset.update(['a', 'b', 'c'])
+
+# Get length of the set
+print(len(oset))  # 3
+
+# Clear the set
+oset.clear()
+
+# OrderedSet supports indexing and slicing
+oset = OrderedSet([1, 2, 3, 4])
+print(oset[1])  # 2
+print(oset[:2])  # OrderedSet([1, 2])
+
+# Find the index of an element
+index = oset.index(3)
+print(index)  # 2
+
+# Check for disjoint sets
+oset2 = OrderedSet([5, 6])
+print(oset.isdisjoint(oset2))  # True
+
+# And much more...
