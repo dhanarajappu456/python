@@ -1,0 +1,28 @@
+class MyClass:
+    def __init__(self):
+        self._value = 0
+
+    #getter
+    @property
+    def current_values(self):
+        return self._value
+
+    #here in setter the @property_name.setter
+    #the property_name should match the function( which is actually a property) in the getter
+    #ie(here "current_values" which is the propety name defined in getter)
+    #the function name for setter can be anything , as you see below
+    @current_values.setter
+    
+    def set_current_value(self, new_value):
+        # You can add validation or other logic here before setting the value
+        self._value = new_value
+
+# Example usage:
+obj = MyClass()
+
+# Using the getter
+print(obj.current_values)  # Output: 0
+
+# Using the setter
+obj.set_current_value = 42
+print(obj.current_values)  # Output: 42
